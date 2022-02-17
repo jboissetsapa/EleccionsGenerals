@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `Eleccions_Generals_GrupB`.`municipis` (
   `provincia_id` TINYINT UNSIGNED NOT NULL,
   `districte` CHAR(2) NULL COMMENT 'Número de districte municipal , sinó el seu valor serà 99. Per exemple aquí municiís com Blanes el seu valor serà 99, però en ciutats com Barcelona hi haurà el número de districte',
   PRIMARY KEY (`municipi_id`),
-  UNIQUE INDEX `uk_municipis_codi_ine` (`codi_ine` ASC) VISIBLE,
+  UNIQUE INDEX `uk_municipis_codi_ine_provincia_id` (`codi_ine` ASC, `provincia_id` ASC) VISIBLE,
   INDEX `idx_fk_municipis_provincies1` (`provincia_id` ASC) VISIBLE,
   CONSTRAINT `fk_municipis_provincies`
     FOREIGN KEY (`provincia_id`)
@@ -138,7 +138,7 @@ ENGINE = InnoDB;
 -- Table `Eleccions_Generals_GrupB`.`persones`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Eleccions_Generals_GrupB`.`persones` (
-  `persona_id` INT UNSIGNED NOT NULL,
+  `persona_id` INT UNSIGNED AUTO_INCREMENT NOT NULL,
   `nom` VARCHAR(30) NULL,
   `cog1` VARCHAR(30) NULL,
   `cog2` VARCHAR(30) NULL,
