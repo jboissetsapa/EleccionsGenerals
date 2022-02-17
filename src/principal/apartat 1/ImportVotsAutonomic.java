@@ -10,6 +10,7 @@ public class ImportVotsAutonomic {
     static String codiComunitatAutonoma;
     static String codiCandidatura;
     static String vots;
+    static String codiIneCA;
     public static void lligirText(){
         BufferedReader bfLector = null;
 
@@ -28,9 +29,13 @@ public class ImportVotsAutonomic {
             //todo comunitat_autonoma_id foreing key de comunitats_autonomes.comunitat_aut_id select usando codi_ine en el where sera 99
             //todo candidatura_id fereing key de candidatures.candidatura_id buscar haceiendo select usando codi_candidatura en el where
             while ((strLinia = bfLector.readLine()) != null) {
-                codiCandidatura = strLinia.substring(15,20);
-                vots = strLinia.substring(21,28);
-                insert();
+                codiComunitatAutonoma = strLinia.substring(9,10);
+                if (!codiComunitatAutonoma.equals("99")){
+                    codiIneCA = strLinia.substring(11,12);
+                    codiCandidatura = strLinia.substring(14,19);
+                    vots = strLinia.substring(20,27);
+                    insert();
+                }
             }
 
         } catch (IOException e) {
@@ -74,7 +79,7 @@ public class ImportVotsAutonomic {
     }
     public static int selectComunitatAutonomaId() {
         int a = 0;
-        int ine = 99;
+        int ine = Integer.parseInt(codiIneCA);
         try{
 
 
@@ -86,7 +91,7 @@ public class ImportVotsAutonomic {
             //Preparem una sentència amb paràmetres.
             String query = "SELECT comunitat_aut_id " +
                     " FROM comunitats_autonomes " +
-                    "WHERE codi_ine != ?";
+                    "WHERE codi_ine = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1,ine);
 
