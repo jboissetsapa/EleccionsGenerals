@@ -7,9 +7,13 @@ import java.sql.*;
 import java.util.Calendar;
 
 public class ImportVotsAutonomic {
-    static String codiComunitatAutonoma;
+
     static String codiCandidatura;
     static String vots;
+    static String codiIneCA;
+    static String codiProvincia;
+    static String codiDistricteElectoral;
+
     public static void lligirText(){
         BufferedReader bfLector = null;
 
@@ -18,19 +22,27 @@ public class ImportVotsAutonomic {
             //Obtenim el directori actual
             Path pathActual = Paths.get(System.getProperty("user.dir"));
 
-            //Concatenem el directori actual amb un subdirectori "temp" i afegim el fitxer "03021911.DAT"
+            //Concatenem el directori actual amb un subdirectori "temp" i afegim el fitxer "08021904.DAT"
             Path pathFitxer = Paths.get(pathActual.toString(), "../DMLAc1/EleccionsGenerals/temp", "08021904.DAT");
 
             //objReader = new BufferedReader(new FileReader(pathFitxer.toString()));
 
             bfLector = Files.newBufferedReader(pathFitxer, StandardCharsets.ISO_8859_1);
             String strLinia;
-            //todo comunitat_autonoma_id foreing key de comunitats_autonomes.comunitat_aut_id select usando codi_ine en el where sera 99
-            //todo candidatura_id fereing key de candidatures.candidatura_id buscar haceiendo select usando codi_candidatura en el where
+
             while ((strLinia = bfLector.readLine()) != null) {
-                codiCandidatura = strLinia.substring(15,20);
-                vots = strLinia.substring(21,28);
-                insert();
+                //comprobar que el codigo de provincia ine sea 99, que el codigo del distrito electoral sea 9 y que el codigo ine de la CCAA no sea 99(que significaria a nivel nacional)
+                // para que los votos que coja sean a nivel total de la comunidad por esa candidatura,
+                codiProvincia = strLinia.substring(11,13);
+                codiDistricteElectoral = strLinia.substring(13,14);
+                codiIneCA = strLinia.substring(9,11);
+                if (codiProvincia.equals("99") && codiDistricteElectoral.equals("9") && !codiIneCA.equals("99")){
+                    // una vez comprobado que son a nivel total de la comunidad i que el codigo de la comunidad no sea 99, significando los votos a nivel nacional, que coja el codigo de la CCAA, el codigo de la candidatura i los votos totales de la CCAA
+                    codiIneCA = strLinia.substring(9,11);
+                    codiCandidatura = strLinia.substring(14,20);
+                    vots = strLinia.substring(20,28);
+                    insert();
+                }
             }
 
         } catch (IOException e) {
@@ -51,8 +63,8 @@ public class ImportVotsAutonomic {
             Connection con = DriverManager.getConnection("jdbc:mysql://192.168.217.130:3306/Eleccions_Generals_GrupB", "perepi", "pastanaga");
 
             //Preparem el Date
-            Calendar calendar = Calendar.getInstance();
-            java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
+            //Calendar calendar = Calendar.getInstance();
+            //java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
             //modificar para que al leer la string lo pase a formato date, la fila de arriba nada mas da la fecha actual
             // the mysql insert statement
             String query = " INSERT INTO vots_candidatures_ca (comunitat_autonoma_id,candidatura_id,vots)"
@@ -60,7 +72,7 @@ public class ImportVotsAutonomic {
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setInt (1, selectComunitatAutonomaId());
+            preparedStmt.setInt (1, selectComunitatAutonomaId(codiIneCA));
             preparedStmt.setInt (2, selectCandidaturaId(codiCandidatura));
             preparedStmt.setInt (3, Integer.parseInt(vots));
             // execute the preparedstatement
@@ -72,9 +84,9 @@ public class ImportVotsAutonomic {
             System.out.println(e);
         }
     }
-    public static int selectComunitatAutonomaId() {
+    public static int selectComunitatAutonomaId(String codiIneCA) {
         int a = 0;
-        int ine = 99;
+        int ine = Integer.parseInt(codiIneCA);
         try{
 
 
@@ -86,7 +98,7 @@ public class ImportVotsAutonomic {
             //Preparem una sentència amb paràmetres.
             String query = "SELECT comunitat_aut_id " +
                     " FROM comunitats_autonomes " +
-                    "WHERE codi_ine != ?";
+                    "WHERE codi_ine = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1,ine);
 
