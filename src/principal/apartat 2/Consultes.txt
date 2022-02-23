@@ -67,4 +67,15 @@ Selecciona la mitjana de vots que ha obtingut la candidatura = 20 en la la comun
 
 
 
+Consulta categoria 4:
+
+Mostra tota la taula de vots de comunitat autonoma i la menor i major quantitat de vots obtinguts per una candidatura a nivell comunitat autonomica,
+ordena-ho per la comunitat autonoma i posa els alies seguents:
+ID Comunitat Autonoma, Candidatura ID, Vots, Menor quantitat de vots aconseguits per candidatura en total i Mayor quantitat de vots aconseguits per candidatura en total.
+
+SELECT comunitat_autonoma_id as "ID Comunitat Autonoma", candidatura_id as "Candidatura ID", vots as Vots
+,IFNULL(NTH_VALUE(vots, 1) over (partition by candidatura_id order by vots ASC), "") as "Menor quantitat de vots aconseguits per candidatura en total"
+,IFNULL(NTH_VALUE(vots, 1) over (partition by candidatura_id order by vots DESC), "") as "Mayor quantitat de vots aconseguits per candidatura en total"
+	FROM vots_candidatures_ca
+    ORDER BY comunitat_autonoma_id;
 
