@@ -1,75 +1,61 @@
-package projecte_base_dades;
-
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
-import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
+import java.nio.file.*;
+import org.apache.commons.compress.archivers.zip.*;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.io.FileUtils;
 
 public class DescomprimirZip {
-    public static int comptador=0;
     public static String[] zips;
     public static File fileZip;
-    public static File origin = new File ("origin");;
+    public static File origin = new File ("origin");
 
 
-
-    public static char descomprimirZip(){
+    public static boolean descomprimirZip(){
 
         //Obtenim el directori actual
         Path pathActual = Paths.get(System.getProperty("user.dir"));
 
         zips = origin.list();
 
-        comptador = 0;
-        while (comptador < 1) {
-            //Concatenem el directori actual amb un subdirectori "dades" i afegim el fitxer "prova.zip"
-            String nomFitxer = zips[0];
+        //Concatenem el directori actual amb un subdirectori "dades" i afegim el fitxer "prova.zip"
+        String nomFitxer = zips[0];
 
-            String unzipDir = "temp";
+        String unzipDir = "temp";
 
+        Path pathFitxer = Paths.get(pathActual.toString(), "origin", nomFitxer);
+        Path pathUnzipDir = Paths.get(pathActual.toString(), unzipDir);
 
-            Path pathFitxer = Paths.get(pathActual.toString(), "origin", nomFitxer);
-            Path pathUnzipDir = Paths.get(pathActual.toString(), unzipDir);
+        // Create zip file stream.
+        try (ZipArchiveInputStream fitxerZip = new ZipArchiveInputStream(
+                new BufferedInputStream(new FileInputStream(pathFitxer.toString())))) {
 
-            // Create zip file stream.
-            try (ZipArchiveInputStream fitxerZip = new ZipArchiveInputStream(
-                    new BufferedInputStream(new FileInputStream(pathFitxer.toString())))) {
+            ZipArchiveEntry entrada;
+            while ((entrada = fitxerZip.getNextZipEntry()) != null) {
+                // Print values from entry.
+                System.out.println(entrada.getName());
+                System.out.println(entrada.getMethod()); // ZipEntry.DEFLATED is int 8
 
-                ZipArchiveEntry entrada;
-                while ((entrada = fitxerZip.getNextZipEntry()) != null) {
-                    // Print values from entry.
-                    System.out.println(entrada.getName());
-                    System.out.println(entrada.getMethod()); // ZipEntry.DEFLATED is int 8
+                File file = new File(Paths.get(pathActual.toString(), unzipDir, entrada.getName()).toString());
+                System.out.println("Unzipping - " + file);
 
-                    File file = new File(Paths.get(pathActual.toString(), unzipDir, entrada.getName()).toString());
-                    System.out.println("Unzipping - " + file);
+                Files.createDirectories(pathUnzipDir);
 
-                    Files.createDirectories(pathUnzipDir);
-
-                    // copiem el contingut del fitxer.
-                    IOUtils.copy(fitxerZip, new FileOutputStream(file));
-
-                }
-                comptador++;
-                return 'd';
-            } catch (IOException e) {
-                comptador++;
-                continue;
+                // copiem el contingut del fitxer.
+                IOUtils.copy(fitxerZip, new FileOutputStream(file));
 
             }
+
+            return true;
+        } catch (IOException e) {
+
+            return  false;
+
         }
 
 
-
-
-        return 'd';
     }
 
-    public static void procesarZips( char procesatCorrectament){
+    public static void procesarZips( boolean procesatCorrectament){
         boolean hiHaFitxers;
         File temporal = new File ("temp");
 
@@ -78,9 +64,9 @@ public class DescomprimirZip {
         File errors = new File("errors");
 
         try {
-            if (procesatCorrectament == 'd') {
+            if (procesatCorrectament) {
                 FileUtils.moveFileToDirectory(fileZip,tractats,false);
-            }else if (procesatCorrectament == 'e'){
+            }else{
                 FileUtils.moveFileToDirectory(fileZip,errors,false);
             }
 
@@ -101,8 +87,4 @@ public class DescomprimirZip {
 
 
     }
-
-
-
-
 }
