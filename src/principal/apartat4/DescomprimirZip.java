@@ -1,4 +1,4 @@
-package projecte_base_dades.apartat4;
+package principal;
 
 import java.io.*;
 import java.nio.file.*;
@@ -22,7 +22,7 @@ public class DescomprimirZip {
 
         //Concatenem el directori actual amb un subdirectori "dades" i afegim el fitxer "prova.zip"
         String nomFitxer = zips[0];
-        zipId = zips[0].substring(0,(zips[0].indexOf("_")));
+        zipId = (zips[0].substring(0,2) + zips[0].substring(4,zips[0].indexOf("_")));
         System.out.println(zipId);
 
         String unzipDir = "temp";
