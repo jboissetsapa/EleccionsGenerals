@@ -8,6 +8,7 @@ public class DescomprimirZip {
     public static String[] zips;
     public static File fileZip;
     public static File origin = new File ("origin");
+    public static String zipId;
 
 
     public static boolean descomprimirZip(){
@@ -19,6 +20,8 @@ public class DescomprimirZip {
 
         //Concatenem el directori actual amb un subdirectori "dades" i afegim el fitxer "prova.zip"
         String nomFitxer = zips[0];
+        zipId = zips[0].substring(0,(zips[0].indexOf("_")));
+        System.out.println(zipId);
 
         String unzipDir = "temp";
 
