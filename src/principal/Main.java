@@ -1,22 +1,17 @@
-package projecte_base_dades;
-
 import org.apache.commons.io.FileUtils;
-import java.io.IOException;
-import projecte_base_dades.activitat.insertx;
 
+import projecte.sapa.apartat4.DescomprimirZip;
+import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) {
 
-
-
-
-
-        char descomprimit = 'e';
+        boolean descomprimit;
         try {
             while (!FileUtils.isEmptyDirectory(DescomprimirZip.origin)) {
                 descomprimit = DescomprimirZip.descomprimirZip();
+
 
 
 
@@ -26,7 +21,6 @@ public class Main {
         } catch (IOException x){
 
         }
-
 
     }
 }
