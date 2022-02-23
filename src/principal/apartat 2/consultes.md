@@ -6,7 +6,7 @@ Selecciona la **candidatura_id, nom_curt i nom_llarg** de les candidatures que t
 
         SELECT candidatura_id, nom_curt, nom_llarg
             FROM candidatures
-        WHERE nom_llarg REGEXP “PARTIDO | PARTIT”;
+        WHERE nom_llarg REGEXP "PARTIDO | PARTIT";
 
 1.2
 Selecciona el número de **candidatures i la eleccio_id** on la seva eleccio_id = 1, nombra les columnes “Num. Candidatures” i “Eleccio”.
@@ -44,7 +44,7 @@ Selecciona de les **candidatures_id i la suma dels vots de les comunitats autono
         LIMIT 5;
 
 1.6
-Seleccione la **persona_id i el seu nom en format** *“Cog1 Cog2*, nom” que tenen el sexe asignat a dona i han nascut entre el 1960 i 1980.
+Seleccione la **persona_id i el seu nom en format** *“Cog1 Cog2, nom”* que tenen el sexe asignat a dona i han nascut entre el 1960 i 1980.
 (*COMPROVAR SI FUNCIONA*)
 
         SELECT persona_id, CONCAT(cognom1," ", cognom2,"," ,nom) AS "Nom Complet"
