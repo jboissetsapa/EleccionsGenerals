@@ -1,4 +1,4 @@
-// Falta afegir package
+package projecte_base_dades.apartat;
 import java.sql.*;
 import java.util.Calendar;
 
@@ -107,7 +107,7 @@ public class importCandidatures {
 
                                 Class.forName("com.mysql.cj.jdbc.Driver");
 
-                                Connection con = DriverManager.getConnection("jdbc:mysql://192.168.75.129/Eleccions_Generals_GrupB", "perepi", "pastanaga");
+                                Connection con = DriverManager.getConnection("jdbc:mysql://192.168.75.129:3306/Eleccions_Generals_GrupB", "perepi", "pastanaga");
 
                                 //SENTÈNCIA SELECT
                                 //Preparem una sentència amb paràmetres.

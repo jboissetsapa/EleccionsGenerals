@@ -1,4 +1,3 @@
-package projecte.sapa.apartat1;
 
 import java.sql.*;
 import java.io.BufferedReader;
