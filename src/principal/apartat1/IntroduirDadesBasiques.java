@@ -1,4 +1,4 @@
-package IntroduirDadesBasiques;
+package projecte_base_dades.apartat1;
 
 import java.sql.Connection;
 import java.sql.Date;
