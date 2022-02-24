@@ -124,7 +124,7 @@ public class ImportarCandidats {
             PreparedStatement preparedStmt = con.prepareStatement(query);
 
 
-            preparedStmt.setInt(1,candidaturaID);
+            preparedStmt.setInt(1,candidatura_id);
 
             ResultSet rs = preparedStmt.executeQuery();
 
