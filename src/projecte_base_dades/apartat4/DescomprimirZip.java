@@ -1,4 +1,6 @@
-package ;
+package projecte_base_dades.apartat4;
+
+;
 
 import java.io.*;
 import java.nio.file.*;
