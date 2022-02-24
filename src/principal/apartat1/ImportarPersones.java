@@ -13,6 +13,8 @@ import java.util.Calendar;
 
 public class ImportarPersones {
 
+    static String nom,nom0, cog1, cog2, nomCompl;
+
     public static void ImportarPersones() {
         BufferedReader bfLector = null;
         try {
@@ -31,36 +33,39 @@ public class ImportarPersones {
 
                 while ((strLinia = bfLector.readLine()) != null) {
 
-                    String nom = strLinia.substring(25, 50).trim();
-                    String cog1 = strLinia.substring(50, 75).trim();
-                    String cog2 = strLinia.substring(75, 100).trim();
+                     nom = strLinia.substring(25, 50).trim();
+                     cog1 = strLinia.substring(50, 75).trim();
+                     cog2 = strLinia.substring(75, 100).trim();
                     String sexe = (strLinia.substring(100, 101));
+                    nomCompl = nom + cog1 + cog2;
+
+                    selectPersones();
+
+                    if (!nomCompl.equals(nom0)) {
+                        //Preparem el Date
+                        Calendar calendar = Calendar.getInstance();
+                        java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
+                        String query = " INSERT INTO persones (nom,cog1,cog2,sexe)"
+                                + " values (  ?, ?, ?, ?)";
 
 
+                        // create the mysql insert preparedstatement
+                        PreparedStatement preparedStmt = con.prepareStatement(query);
 
-                    //Preparem el Date
-                    Calendar calendar = Calendar.getInstance();
-                    java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
-                String query = " INSERT INTO persones (nom,cog1,cog2,sexe)"
-                        + " values (  ?, ?, ?, ?)";
-
-
-                    // create the mysql insert preparedstatement
-                    PreparedStatement preparedStmt = con.prepareStatement(query);
-
-                    preparedStmt.setString(1, nom);
-                    preparedStmt.setString(2, cog1);
-                    preparedStmt.setString(3, cog2);
-                    preparedStmt.setString(4, sexe);
+                        preparedStmt.setString(1, nom);
+                        preparedStmt.setString(2, cog1);
+                        preparedStmt.setString(3, cog2);
+                        preparedStmt.setString(4, sexe);
 
 
+                        // execute the preparedstatement
+                        preparedStmt.execute();
 
-                    // execute the preparedstatement
-                    preparedStmt.execute();
-
-                    //Tanquem la connexió
+                    }
 
                 }
+
+
 
 
             con.close();
@@ -74,5 +79,44 @@ public class ImportarPersones {
             throwables.printStackTrace();
         }
     }
+
+    static void selectPersones(){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
+
+            //SENTÈNCIA SELECT
+            //Preparem una sentència amb paràmetres.
+            String query = "SELECT * " +
+                    " FROM persones " +
+                    "WHERE nom = ? && cog1 = ? && cog2 = ?";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+
+
+            preparedStmt.setString(1,nom);
+            preparedStmt.setString(2,cog1);
+            preparedStmt.setString(3,cog2);
+
+
+            ResultSet rs = preparedStmt.executeQuery();
+
+            nom0 = " ";
+
+            while(rs.next()) {
+                nom0 = rs.getString("nom");
+                nom0 += rs.getString("cog1");
+                nom0 += rs.getString("cog2");
+            }
+            con.close();
+        }
+        catch(Exception e){
+            System.out.println(e);}
+    }
+
+
+
+
+
     }
 
