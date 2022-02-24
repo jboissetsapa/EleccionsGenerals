@@ -1,4 +1,6 @@
 package projecte_base_dades.apartat1;
+import projecte_base_dades.apartat4.DescomprimirZip;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -13,7 +15,7 @@ public class ImportVotsAutonomic {
     static String codiIneCA;
     static String codiProvincia;
     static String codiDistricteElectoral;
-
+    static String zipId = DescomprimirZip.zipId;
     public static void lligirText(){
         BufferedReader bfLector = null;
 
@@ -23,7 +25,7 @@ public class ImportVotsAutonomic {
             Path pathActual = Paths.get(System.getProperty("user.dir"));
 
             //Concatenem el directori actual amb un subdirectori "temp" i afegim el fitxer "08021904.DAT"
-            Path pathFitxer = Paths.get(pathActual.toString(), "../DMLAc1/EleccionsGenerals/temp", "08021904.DAT");
+            Path pathFitxer = Paths.get(pathActual.toString(), "temp", "08"+ zipId + ".DAT");
 
             //objReader = new BufferedReader(new FileReader(pathFitxer.toString()));
 
