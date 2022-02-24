@@ -46,7 +46,7 @@ public class ImportComunAutonom {
             Path pathActual = Paths.get(System.getProperty("user.dir"));
 
             //Concatenem el directori actual amb un subdirectori "dades" i afegim el fitxer "03021911.DAT"
-            Path pathFitxer = Paths.get(pathActual.toString(), "temp", "07021904.DAT");
+            Path pathFitxer = Paths.get(pathActual.toString(), "temp", "07"+ DescomprimirZip.zipId +".DAT");
 
             //objReader = new BufferedReader(new FileReader(pathFitxer.toString()));
             bfLector = Files.newBufferedReader(pathFitxer, StandardCharsets.ISO_8859_1);
