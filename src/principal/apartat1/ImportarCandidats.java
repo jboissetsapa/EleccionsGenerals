@@ -29,7 +29,7 @@ public class ImportarCandidats {
             Calendar calendar = Calendar.getInstance();
             Date startDate = new Date(calendar.getTime().getTime());
             Path pathActual = Paths.get(System.getProperty("user.dir"));
-            Path pathFitxer = Paths.get(pathActual.toString(), "dades", "04021904.DAT");
+             Path pathFitxer = Paths.get(pathActual.toString(), "temp", "04"+ DescomprimirZip.zipId +".DAT");
             bfLector = Files.newBufferedReader(pathFitxer, StandardCharsets.ISO_8859_1);
             while ((strLinia = bfLector.readLine()) != null) {
 
