@@ -51,7 +51,7 @@ public class importMunicpis {
             Path pathActual = Paths.get(System.getProperty("user.dir"));
 
             //Concatenem el directori actual amb un subdirectori "dades" i afegim el fitxer "03021911.DAT"
-            Path pathFitxer = Paths.get(pathActual.toString(), "temp", "05021904.DAT");
+            Path pathFitxer = Paths.get(pathActual.toString(), "temp", "05"+ DescomprimirZip.zipId +".DAT");
 
             //objReader = new BufferedReader(new FileReader(pathFitxer.toString()));
 
