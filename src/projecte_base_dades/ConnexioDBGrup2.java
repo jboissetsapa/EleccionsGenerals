@@ -1,4 +1,4 @@
-package projecte.sapa;
+package projecte_base_dades;
 
 import java.sql.*;
 
