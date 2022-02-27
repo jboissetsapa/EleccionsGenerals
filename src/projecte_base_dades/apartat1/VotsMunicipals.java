@@ -7,157 +7,179 @@ import java.sql.*;
 import java.util.Calendar;
 
 public class VotsMunicipals {
-    static String codiDistricteElectoral;
-    static String codiCandidatura;
-    static String codiIneMun;
-    static String vots;
+   static int codiCandidatura;
+    static int provinciaId;
+    static int codiIneMun;
+    static int numVots;
 
     public static void llegir() {
 
         BufferedReader bfLector = null;
 
-            try {
+        try {
 
-                //Obtenim el directori actual
-                Path pathActual = Paths.get(System.getProperty("user.dir"));
+            Path pathActual = Paths.get(System.getProperty("user.dir"));
 
-                //Concatenem el directori actual amb un subdirectori "temp" i afegim el fitxer "06021904.DAT"
-                Path pathFitxer =  Paths.get(pathActual.toString(),  "../trabajo dml/votsmunicipals", "08021904.DAT");
+            Path pathFitxer =  Paths.get(pathActual.toString(),  "temp", "06021904.DAT");
 
-                //objReader = new BufferedReader(new FileReader(pathFitxer.toString()));
-                bfLector = Files.newBufferedReader(pathFitxer, StandardCharsets.ISO_8859_1);
-                String strLinia;
+            //objReader = new BufferedReader(new FileReader(pathFitxer.toString()));
+            bfLector = Files.newBufferedReader(pathFitxer, StandardCharsets.ISO_8859_1);
+            String strLinia;
 
-                while((strLinia = bfLector.readLine()) !=null) {
-                    //Definir longitud dels camps
-                    codiIneMun = strLinia.substring(12,15);
-                     codiDistricteElectoral=strLinia.substring(13,14)
-                       codiIneMun = strLinia.substring(12,15);
-                       codiCandidatura = strLinia.substring(14,20);
-                       vots = strLinia.substring(20,28);
-                        insert();
+            while((strLinia = bfLector.readLine()) !=null) {
+                int districte = Integer.parseInt(strLinia.substring(14,16));
 
-                 }
+                if (districte == 99) {
+                    provinciaId = selectProvincia(Integer.parseInt(strLinia.substring(9, 11)));
+                    codiIneMun = Integer.parseInt(strLinia.substring(11, 14));
+                    codiCandidatura = Integer.parseInt(strLinia.substring(16,22));
+                    numVots = Integer.parseInt(strLinia.substring(22,30));
 
-            }catch(IOException e){
-                e.printStackTrace();
-            } finally{
-                try{
-                    if(bfLector != null)
-                        bfLector.close();
-                }catch (IOException ex) {
-                    ex.printStackTrace();
+                    insert();
+                }else{
+                    continue;
                 }
             }
+
+        }catch(IOException e){
+            e.printStackTrace();
+        } finally{
+            try{
+                if(bfLector != null)
+                    bfLector.close();
+            }catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
-             static void insert(){
-                   try{
-                       Class.forName("com.mysql.cj.jdbc.Driver");
-                       Connection con = DriverManager.getConnection("jdbc:mysql://192.168.108.129:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-                       String query = " INSERT INTO vots_candidatures_mun (eleccio_id, municipi_id, candidatura_id, vots)"
-                               + " values (?, ?, ?, ?)";
+    static void insert(){
+        try{
+            Connection con = ConnexioDBGrup2.getConnection();
 
-                       PreparedStatement preparedStmt = con.prepareStatement(query);
-                       preparedStmt.setInt(1, selectMunicipi());
-                       preparedStmt.setInt(2, selectEleccioId());
-                       preparedStmt.setInt(3, selectCandidaturaId());
-                       preparedStmt.setInt(4, Integer.parseInt(vots));
+            int codiEleccio = selectEleccioId(2019, 4);
+            int codiMunicipi = selectMunicipi(codiIneMun);
+            int candidaturaId = selectCandidaturaId(codiCandidatura);
+
+            String query = " INSERT INTO vots_candidatures_mun (eleccio_id, municipi_id, candidatura_id, vots)"
+                    + " values (?, ?, ?, ?)";
+
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setInt(1, codiEleccio);
+            preparedStmt.setInt(2, codiMunicipi);
+            preparedStmt.setInt(3, candidaturaId);
+            preparedStmt.setInt(4, numVots);
 
 
-                       //execute the preparedstatement
-                       preparedStmt.execute();
+            //execute the preparedstatement
+            preparedStmt.execute();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
 
-                       //Es tanca connexió
-                       con.close();
-                   }
-                  catch(Exception e){
-                       System.out.println(e);
-                  }
-                }
+    public static int selectProvincia(int ine) {
 
-                public static int selectMunicipi(String codiIneM) {
+        int a = 0;
+        try {
+            Connection con = ConnexioDBGrup2.getConnection();
+            //Sentència SELECT: es prepara sentència amb paràmetres
+            String query = "SELECT *" +
+                    " FROM provincies " +
+                    "WHERE codi_ine = ?";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setInt(1, ine);
 
-                    int a = 0;
-                    int ine = Integer.parseInt(codiIneM);
-                    try {
-                        Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql:// 192.168.108.129:3306 /Eleccions_Generals_GrupB", "perepi", "pastanaga");
+            ResultSet rs = preparedStmt.executeQuery();
 
-                        //Sentència SELECT: es prepara sentència amb paràmetres
-                        String query = "SELECT municipi_id " +
-                                " FROM municipis " +
-                                "WHERE codi_ine = ?";
-                        PreparedStatement preparedStmt = con.prepareStatement(query);
-                        preparedStmt.setInt(1, ine);
+            while (rs.next()) {
+                a = rs.getInt("provincia_id");
+            }
 
-                        ResultSet rs = preparedStmt.executeQuery();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return a;
+    }
 
-                        while (rs.next()) {
-                            a = rs.getInt("municipi_id");
-                        }
 
-                    } catch (ClassNotFoundException | SQLException throwables) {
-                        throwables.printStackTrace();
-                    }
-                    return a;
-                }
+    public static int selectMunicipi(int codiIneM) {
 
-                public static int selectCandidaturaId(String codicandidatura){
-                int a = 0;
-                int CodiCandidatura = Integer.parseInt(codicandidatura);
+        int a = 0;
+        try {
+            Connection con = ConnexioDBGrup2.getConnection();
+            //Sentència SELECT: es prepara sentència amb paràmetres
+            String query = "SELECT *" +
+                    " FROM municipis " +
+                    "WHERE codi_ine = ? && provincia_id = ?";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setInt(1, codiIneM);
+            preparedStmt.setInt(2, provinciaId);
 
-                try{
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql:// 192.168.108.129:3306 /Eleccions_Generals_GrupB", "perepi", "pastanaga");
+            ResultSet rs = preparedStmt.executeQuery();
 
-                    //Sentència SELECT: es prepara sentència amb paràmetres
-                    String query = "SELECT candidatura_id " +
-                                "FROM candidatures " +
-                                "WHERE codi_candidatura = ?" ;
-                    PreparedStatement preparedStmt = con.prepareStatement(query);
-                    preparedStmt.setInt(1,CodiCandidatura);
+            while (rs.next()) {
+                a = rs.getInt("municipi_id");
+            }
 
-                    ResultSet rs = preparedStmt.executeQuery();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return a;
+    }
 
-                    while(rs.next()){
-                        a=rs.getInt("candidatura_id");
-                    }
-                }catch (ClassNotFoundException | SQLException throwables){
-                    throwables.printStackTrace();
-                }
+    public static int selectCandidaturaId(int codicandidatura){
+        int a = 0;
 
-                return a;
-                }
+        try{
+            Connection con = ConnexioDBGrup2.getConnection();
 
-                public static int selectEleccioId(String codieleccio){
-                int a = 0;
-                int CodiEleccio = Integer.parseInt(codieleccio);
+            //Sentència SELECT: es prepara sentència amb paràmetres
+            String query = "SELECT *" +
+                    "FROM candidatures " +
+                    "WHERE codi_candidatura = ?" ;
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setInt(1,codicandidatura);
 
-                    try{
-                        Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql:// 192.168.108.129:3306 /Eleccions_Generals_GrupB", "perepi", "pastanaga");
+            ResultSet rs = preparedStmt.executeQuery();
 
-                        //Sentència SELECT: es prepara sentència amb paràmetres
-                        String query = "SELECT eleccio_id " +
-                                "FROM eleccions " +
-                                "WHERE codi_eleccio = ?" ;
-                        PreparedStatement preparedStmt = con.prepareStatement(query);
-                        preparedStmt.setInt(1,CodiEleccio);
+            while(rs.next()){
+                a=rs.getInt("candidatura_id");
+            }
+        }catch (SQLException throwables){
+            throwables.printStackTrace();
+        }
 
-                        ResultSet rs = preparedStmt.executeQuery();
+        return a;
+    }
 
-                        while(rs.next()){
-                            a=rs.getInt("eleccio_id");
-                        }
-                    }catch (ClassNotFoundException | SQLException throwables){
-                        throwables.printStackTrace();
-                    }
+    public static int selectEleccioId(int year,int month){
+        int a = 0;
+        try{
+            Connection con = ConnexioDBGrup2.getConnection();
 
-                    return a;
+            //SENTÈNCIA SELECT
+            //Preparem una sentència amb paràmetres.
+            String query = "SELECT eleccio_id " +
+                    " FROM eleccions " +
+                    "WHERE any = ? AND mes = ?";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setInt(1,year);
+            preparedStmt.setInt(2,month);
+
+            ResultSet rs = preparedStmt.executeQuery();
+
+            while(rs.next()) {
+                a = rs.getInt("eleccio_id");
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return a;
     }
 
 }
-
 
 
