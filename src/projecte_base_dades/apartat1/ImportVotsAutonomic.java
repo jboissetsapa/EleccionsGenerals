@@ -64,7 +64,7 @@ public class ImportVotsAutonomic {
 
             Connection con = DriverManager.getConnection("jdbc:mysql://192.168.217.130:3306/Eleccions_Generals_GrupB", "perepi", "pastanaga");
 
-            
+
             // the mysql insert statement
             String query = " INSERT INTO vots_candidatures_ca (comunitat_autonoma_id,candidatura_id,vots)"
                     + " values ( ?, ?, ?)";
