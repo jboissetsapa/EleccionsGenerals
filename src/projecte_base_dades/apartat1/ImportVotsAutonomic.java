@@ -64,10 +64,7 @@ public class ImportVotsAutonomic {
 
             Connection con = DriverManager.getConnection("jdbc:mysql://192.168.217.130:3306/Eleccions_Generals_GrupB", "perepi", "pastanaga");
 
-            //Preparem el Date
-            //Calendar calendar = Calendar.getInstance();
-            //java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
-            //modificar para que al leer la string lo pase a formato date, la fila de arriba nada mas da la fecha actual
+            
             // the mysql insert statement
             String query = " INSERT INTO vots_candidatures_ca (comunitat_autonoma_id,candidatura_id,vots)"
                     + " values ( ?, ?, ?)";
