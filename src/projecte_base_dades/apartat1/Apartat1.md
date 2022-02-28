@@ -30,7 +30,7 @@ on no s'hi troben dades en el fitxer .DAT per omplir aquesta columna.
 Per l'ensamblatge i organització de les diferents importacions hem utilitzat un esquema de carpetes que es
 representa d'aquesta manera:
 
-![estructura](..\Downloads\estructura.jpeg)
+![Estructura](../../../imatges/Estructura.jpeg)
 
 Tot aquest projecte ha sigut utilitzat amb el suport d'un repositori comú al servei GitHub (En l'apartat 3
 s'explica amb més detall aquesta part).
