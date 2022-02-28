@@ -15,7 +15,7 @@ import java.util.Calendar;
 
 public class ImportarPersones {
 
-    static String nom,nom0, cog1, cog2, nomCompl;
+    static String nom,nom0, cog1, cog2;
 
     public static void ImportarPersones() {
         BufferedReader bfLector = null;
@@ -37,11 +37,10 @@ public class ImportarPersones {
                      cog1 = strLinia.substring(50, 75).trim();
                      cog2 = strLinia.substring(75, 100).trim();
                     String sexe = (strLinia.substring(100, 101));
-                    nomCompl = nom + cog1 + cog2;
 
                     selectPersones();
 
-                    if (!nomCompl.equals(nom0)) {
+                    if (nom0.equals(" ")) {
                         //Preparem el Date
                         Calendar calendar = Calendar.getInstance();
                         java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());

@@ -11,7 +11,7 @@ import org.apache.commons.io.FileUtils;
 public class DescomprimirZip {
     public static String[] zips;
     public static File fileZip;
-    public static File origin = new File ("origin");
+    public static File origin = new File ("origen");
     public static String zipId;
 
 
@@ -29,7 +29,7 @@ public class DescomprimirZip {
 
         String unzipDir = "temp";
 
-        Path pathFitxer = Paths.get(pathActual.toString(), "origin", nomFitxer);
+        Path pathFitxer = Paths.get(pathActual.toString(), "origen", nomFitxer);
         Path pathUnzipDir = Paths.get(pathActual.toString(), unzipDir);
 
         // Create zip file stream.
@@ -40,7 +40,6 @@ public class DescomprimirZip {
             while ((entrada = fitxerZip.getNextZipEntry()) != null) {
 
                 File file = new File(Paths.get(pathActual.toString(), unzipDir, entrada.getName()).toString());
-                System.out.println("Unzipping - " + file);
 
                 Files.createDirectories(pathUnzipDir);
 
@@ -63,7 +62,7 @@ public class DescomprimirZip {
         boolean hiHaFitxers;
         File temporal = new File ("temp");
 
-        fileZip = new File("origin\\" + zips[0]);
+        fileZip = new File("origen\\" + zips[0]);
         File tractats = new File("tractats");
         File errors = new File("errors");
 

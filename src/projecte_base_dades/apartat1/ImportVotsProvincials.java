@@ -24,7 +24,7 @@ public class ImportVotsProvincials {
             Path pathActual = Paths.get(System.getProperty("user.dir"));
 
             //Concatenem el directori actual amb un subdirectori "dades" i afegim el fitxer "05021904.DAT"
-            Path pathFitxer = Paths.get(pathActual.toString(), "dades", "08"+ DescomprimirZip.zipId +".DAT");
+            Path pathFitxer = Paths.get(pathActual.toString(), "temp", "08"+ DescomprimirZip.zipId +".DAT");
 
             bfLector = Files.newBufferedReader(pathFitxer, StandardCharsets.ISO_8859_1);
             String strLinia;
