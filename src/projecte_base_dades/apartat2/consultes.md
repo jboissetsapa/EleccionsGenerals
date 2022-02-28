@@ -104,10 +104,10 @@ ascendent.
 2.3-Mostra de candidatura del BNG el codi, el nom llarg, el municipi i els codis de acumulacions. Ordena per codi municipi.
 
         SELECT c.codi_candidatura, c.nom_llarg, em.municipi_id, c.codi_acumulacio_provincia, c.codi_acumulacio_ca, 	c.codi_acumulario_nacional
-                FROM candidatures c
-                INNER JOIN eleccions_municipis em ON em.eleccio_id = c.eleccio_id    
-                WHERE nom_curt = "BNG"
-            ORDER BY municipi_id;
+        FROM candidatures c
+        INNER JOIN eleccions_municipis em ON em.eleccio_id = c.eleccio_id    
+        WHERE nom_curt = "BNG"
+        ORDER BY municipi_id;
 2.4-De cada província volem saber la quantitat de municipis que té.
 
 	SELECT  p.nom provincia, COUNT(*) quantitat
@@ -136,6 +136,28 @@ ascendent.
         INNER JOIN candidats c ON c.persona_id = p.persona_id
         INNER JOIN provincies pr ON pr.provincia_id = c.provincia_id
         WHERE pr.nom = 'Santa Cruz de Tenerife';
+	
+2-8-Mostra de cada candidatura, el codi de candidatura, nom curt, el codi acumulari nacional i el numero d'ordre.
+	
+	SELECT cr.codi_candidatura, cr.nom_curt, cr.codi_acumulario_nacional, c.num_ordre 
+	FROM candidatures cr
+	INNER JOIN candidats c ON c.candidatura_id = cr.candidatura_id;
+
+2-9.Mostra els vots de candidatures de cada provincia. Volem saber el nom de la provincia i els vots
+	
+	SELECT p.nom, MAX(vcp.vots) vots
+	FROM vots_candidatures_prov vcp
+	INNER JOIN provincies p ON p.provincia_id = vcp.provincia_id
+   	GROUP BY p.nom;
+
+2.10-Mostra de candidatura del "ESQUERRA REPUBLICANA DE CATALUNYA-SOBIRANISTES "  el nom de municipi, el codi de municipi , codi_ine, el numero de meses. Ordena per codi municipi
+
+	SELECT  m.nom, em.municipi_id, m.codi_ine, em.num_meses
+	FROM candidatures c
+	INNER JOIN eleccions_municipis em ON em.eleccio_id = c.eleccio_id 
+	INNER JOIN municipis m ON m.municipi_id = em.municipi_id
+	WHERE c.nom_llarg = "ESQUERRA REPUBLICANA DE CATALUNYA-SOBIRANISTES"
+	ORDER BY municipi_id;
 ---
 
 ### CATEGORIA 3
