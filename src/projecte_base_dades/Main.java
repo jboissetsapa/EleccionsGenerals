@@ -11,7 +11,10 @@ public class Main {
 
     public static void main(String[] args) {
         int bucle = 1;
-
+        boolean descomprimit;
+        descomprimit = DescomprimirZip.descomprimirZip();
+        ImportarPersones.ImportarPersones();
+        /*
         boolean descomprimit;
         try {
             while (!FileUtils.isEmptyDirectory(DescomprimirZip.origin)) {
@@ -47,6 +50,8 @@ public class Main {
             }
         } catch (IOException x){
         }
+
+         */
 
 
 
