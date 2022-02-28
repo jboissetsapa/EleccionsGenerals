@@ -1,5 +1,7 @@
 package projecte_base_dades.apartat1;
 
+import projecte_base_dades.ConnexioDBGrup2;
+import projecte_base_dades.apartat4.DescomprimirZip;
 import java.sql.*;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,10 +15,7 @@ public class ImportComunAutonom {
     static void introducir(){
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con= DriverManager.getConnection("jdbc:mysql://192.168.56.102:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             // the mysql insert statement
             String query = " INSERT INTO comunitats_autonomes (nom,codi_ine)"
                     + " values (?,?)";
@@ -29,8 +28,6 @@ public class ImportComunAutonom {
             // execute the preparedstatement
             preparedStmt.execute();
 
-            //Tanquem la connexió
-            con.close();
         }
         catch(Exception e){
             e.printStackTrace();
