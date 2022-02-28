@@ -54,7 +54,6 @@ public class IntroduirDadesBasiques {
             //Preparem el Date
             Calendar calendar = Calendar.getInstance();
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
-            //modificar para que al leer la string lo pase a formato date, la fila de arriba nada mas da la fecha actual
             // the mysql insert statement
             String query = " INSERT INTO eleccions (nom,data)"
                     + " values ( ?, ?)";
