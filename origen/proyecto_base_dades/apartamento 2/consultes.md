@@ -178,6 +178,15 @@ WHERE escons = (SELECT escons
                 WHERE nom LIKE ‘--------’ )
 ORDER BY nom ASC;
 
+3.5 Obté la candidatura_id i els candidats obtinguts dels vots provincials, on els vots siguin més que els de la provincia número 20.
+
+SELECT candidatura_id, candidats_obtinguts
+FROM vots_candidatures_prov
+WHERE vots > (SELECT vots
+              FROM vots_candidatures_prov
+              WHERE provincia_id = 20 )
+AND provincia_id != 20;
+
 
 
 
