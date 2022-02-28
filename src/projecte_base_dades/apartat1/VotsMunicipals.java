@@ -1,4 +1,7 @@
 package projecte_base_dades.apartat1;
+
+import projecte_base_dades.ConnexioDBGrup2;
+import projecte_base_dades.apartat4.DescomprimirZip;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -20,7 +23,7 @@ public class VotsMunicipals {
 
             Path pathActual = Paths.get(System.getProperty("user.dir"));
 
-            Path pathFitxer =  Paths.get(pathActual.toString(),  "temp", "06021904.DAT");
+            Path pathFitxer =  Paths.get(pathActual.toString(),  "temp", "06"+ DescomprimirZip.zipId +".DAT");
 
             //objReader = new BufferedReader(new FileReader(pathFitxer.toString()));
             bfLector = Files.newBufferedReader(pathFitxer, StandardCharsets.ISO_8859_1);
