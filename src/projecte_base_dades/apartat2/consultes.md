@@ -137,13 +137,13 @@ ascendent.
         INNER JOIN provincies pr ON pr.provincia_id = c.provincia_id
         WHERE pr.nom = 'Santa Cruz de Tenerife';
 	
-2-8-Mostra de cada candidatura, el codi de candidatura, nom curt, el codi acumulari nacional i el numero d'ordre.
+2.8-Mostra de cada candidatura, el codi de candidatura, nom curt, el codi acumulari nacional i el numero d'ordre.
 	
 	SELECT cr.codi_candidatura, cr.nom_curt, cr.codi_acumulario_nacional, c.num_ordre 
 	FROM candidatures cr
 	INNER JOIN candidats c ON c.candidatura_id = cr.candidatura_id;
 
-2-9.Mostra els vots de candidatures de cada provincia. Volem saber el nom de la provincia i els vots
+2.9-Mostra els vots de candidatures de cada provincia. Volem saber el nom de la provincia i els vots
 	
 	SELECT p.nom, MAX(vcp.vots) vots
 	FROM vots_candidatures_prov vcp
