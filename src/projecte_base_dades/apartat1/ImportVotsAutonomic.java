@@ -60,11 +60,8 @@ public class ImportVotsAutonomic {
     }
     static void insert(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.217.130:3306/Eleccions_Generals_GrupB", "perepi", "pastanaga");
-
-
+            Connection con= ConnexioDBGrup2.getConnection();
+            
             // the mysql insert statement
             String query = " INSERT INTO vots_candidatures_ca (comunitat_autonoma_id,candidatura_id,vots)"
                     + " values ( ?, ?, ?)";
@@ -77,8 +74,6 @@ public class ImportVotsAutonomic {
             // execute the preparedstatement
             preparedStmt.execute();
 
-            //Tanquem la connexió
-            con.close();
         }catch(Exception e){
             System.out.println(e);
         }
@@ -88,11 +83,7 @@ public class ImportVotsAutonomic {
         int ine = Integer.parseInt(codiIneCA);
         try{
 
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.217.130:3306/Eleccions_Generals_GrupB", "perepi", "pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT comunitat_aut_id " +
@@ -109,7 +100,7 @@ public class ImportVotsAutonomic {
 
             }
 
-        } catch (ClassNotFoundException | SQLException throwables) {
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
@@ -121,11 +112,7 @@ public class ImportVotsAutonomic {
         int codCandidatura = Integer.parseInt(codiCandidatura);
         try{
 
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.217.130:3306/Eleccions_Generals_GrupB", "perepi", "pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT candidatura_id " +
@@ -142,7 +129,7 @@ public class ImportVotsAutonomic {
 
             }
 
-        } catch (ClassNotFoundException | SQLException throwables) {
+        } catch ( SQLException throwables) {
             throwables.printStackTrace();
         }
 
