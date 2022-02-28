@@ -138,7 +138,18 @@ FROM comunitats_autonomes ca
 WHERE codi_ine > (SELECT codi_ine
                   FROM comunitats_autonomes
                   WHERE comunitat_aut_id = 12)
-AND comunitat_aut_id != 12;
+AND comunitat_aut_id != 12
+
+
+3.4 Obté de les circumscripcions, els noms que tinguin 8 caràcters i a més que tinguin els mateixos números d’escons. Ordena els noms de forma ascendent.
+
+SELECT nom
+FROM circumscripcions c
+WHERE escons = (SELECT escons
+                FROM circumscripcions
+                WHERE nom LIKE ‘--------’ )
+ORDER BY nom ASC;
+
 
 
 
