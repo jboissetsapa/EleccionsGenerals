@@ -1,6 +1,6 @@
-### APARTAT 4: Tractament de fitxers
+## APARTAT 4: Tractament de fitxers
 
-## Contingut:
+### Contingut:
 
 La funció bàsica es:
 
