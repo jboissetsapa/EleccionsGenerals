@@ -1,5 +1,6 @@
 package projecte_base_dades.apartat1;
 
+import projecte_base_dades.ConnexioDBGrup2;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
@@ -11,9 +12,7 @@ public class IntroduirDadesBasiques {
 
     public static void dadesBasicIntro(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.217.130:3306/Eleccions_Generals_GrupB", "perepi", "pastanaga");
+            Connection con= ConnexioDBGrup2.getConnection();
 
             String[] nomsEleccio = {"Referendum","Elecciones al Congreso de los Diputados", "Elecciones al Senado","Elecciones Municipales","Elecciones Autonómicas", "Elecciones a Cabildos Insulares", "Elecciones al Parlamento Europeo","Elecciones a Partidos Judiciales y Diputaciones Provinciales","Elecciones a Juntas Generales"};
             File f = new File("origen");
@@ -65,9 +64,6 @@ public class IntroduirDadesBasiques {
             // execute the preparedstatement
             preparedStmt.execute();
 
-
-            //Tanquem la connexió
-            con.close();
         }catch(Exception e){
             System.out.println(e);
         }
