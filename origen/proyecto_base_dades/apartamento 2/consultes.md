@@ -117,8 +117,8 @@ ascendent.
 SELECT *
 FROM persones p
 WHERE data_naixement > (SELECT data_naixement
-                        FROM persones
-                        WHERE nom LIKE ‘M%’ AND cog1 LIKE ‘%a’)
+	                    FROM persones
+	                    WHERE nom LIKE ‘M%’ AND cog1 LIKE ‘%a’)
 AND nom NOT LIKE ‘M%’ AND cog1 NOT LIKE ‘%a’;
 
 
