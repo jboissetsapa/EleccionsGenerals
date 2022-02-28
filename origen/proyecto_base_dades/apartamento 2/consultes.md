@@ -103,11 +103,39 @@ ascendent.
 
 2.3-Mostra de candidatura del BNG el codi, el nom llarg, el municipi i els codis de acumulacions. Ordena per codi municipi.
 
-        SELECT c.codi_candidatura, c.nom_llarg, em.municipi_id, c.codi_acumulacio_provincia, c.codi_acumulacio_ca, c.codi_acumulario_nacional
+        SELECT c.codi_candidatura, c.nom_llarg, em.municipi_id, c.codi_acumulacio_provincia, c.codi_acumulacio_ca, 	c.codi_acumulario_nacional
                 FROM candidatures c
                 INNER JOIN eleccions_municipis em ON em.eleccio_id = c.eleccio_id    
                 WHERE nom_curt = "BNG"
             ORDER BY municipi_id;
+2.4-De cada província volem saber la quantitat de municipis que té.
+
+	SELECT  p.nom provincia, COUNT(*) quantitat
+	FROM municipis m
+	INNER JOIN provincies p ON p.provincia_id = m.provincia_id
+	GROUP BY p.nom;
+
+2.5-Volem saber els vots nuls de cada provincia.
+	
+	SELECT  p.nom provincia, COUNT(em.vots_nuls) 
+	FROM eleccions_municipis em
+    	INNER JOIN municipis m ON m.municipi_id = em.municipi_id
+	INNER JOIN provincies p ON p.provincia_id = m.provincia_id
+	GROUP BY p.nom;
+
+2.6-Mostra de cada candidat el seu codi, nom, cognoms io que tinguin asignat el sexe de dona
+
+	SELECT  c.candidat_id, p.nom, CONCAT(cog1,", " ,cog2) cognoms 
+	FROM candidats c
+    	INNER JOIN persones p ON p.persona_id = c.persona_id
+	WHERE p.sexe = 'F';
+
+2.7-Mostra les persones que provenen de la provincia de 'Santa Cruz de Tenerife'. Volem saber el codi de la persona, cognoms i el nom.
+
+	SELECT p.persona_id, CONCAT(p.nom,", ",p.cog1," ",p.cog2) nom_complet							FROM persones p
+        INNER JOIN candidats c ON c.persona_id = p.persona_id
+        INNER JOIN provincies pr ON pr.provincia_id = c.provincia_id
+        WHERE pr.nom = 'Santa Cruz de Tenerife';
 ---
 
 ### CATEGORIA 3
@@ -149,15 +177,6 @@ WHERE escons = (SELECT escons
                 FROM circumscripcions
                 WHERE nom LIKE ‘--------’ )
 ORDER BY nom ASC;
-
-3.5 Obté la candidatura_id i els candidats obtinguts dels vots provincials, on els vots siguin més que els de la provincia número 20.
-
-SELECT candidatura_id, candidats_obtinguts
-FROM vots_candidatures_prov
-WHERE vots > (SELECT vots
-              FROM vots_candidatures_prov
-              WHERE provincia_id = 20 )
-AND provincia_id != 20;
 
 
 
