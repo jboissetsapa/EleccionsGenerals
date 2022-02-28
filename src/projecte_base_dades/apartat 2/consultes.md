@@ -86,6 +86,28 @@ Selecciona la **diferencia dels vots emesos i cens** de eleccions_municipis, ren
 
 ### CATEGORIA 2
 
+2.1-Mostra de cada candidat, el nom del candidat, cognoms i codi. Ordena les dades per cognoms i nom de forma
+ascendent.
+
+        SELECT p.nom, p.cog1, p.cog2, c.candidat_id
+        FROM candidats c
+        INNER JOIN persones p ON p.persona_id = c.persona_id
+        ORDER BY p.cog1, p.cog2, p.nom;  
+
+2.2-Mostra els vots en blanc i nul de cada comunitat autonoma.
+
+        SELECT em.vots_blanc, em.vots_nuls, ca.nom
+        FROM eleccions_municipis em
+        INNER JOIN municipis m  ON m.municipi_id = em.municipi_id
+        INNER JOIN comunitats_autonomes ca ON  ca.codi_ine = m.codi_ine
+
+2.3-Mostra de candidatura del BNG el codi, el nom llarg, el municipi i els codis de acumulacions. Ordena per codi municipi.
+
+        SELECT c.codi_candidatura, c.nom_llarg, em.municipi_id, c.codi_acumulacio_provincia, c.codi_acumulacio_ca, c.codi_acumulario_nacional
+                FROM candidatures c
+                INNER JOIN eleccions_municipis em ON em.eleccio_id = c.eleccio_id    
+                WHERE nom_curt = "BNG"
+            ORDER BY municipi_id;
 ---
 
 ### CATEGORIA 3
