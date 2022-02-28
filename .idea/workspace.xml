@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b961e6d1-4d59-4af8-a88f-795cd6d9eeac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/ImportarPersones.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/ImportarPersones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportarPersones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportarPersones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/01021904.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/02021904.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/03021904.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/04021904.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/05021904.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/06021904.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/07021904.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/08021904.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/09021904.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/10021904.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tractats/02201606_MESA.zip" beforeDir="false" />
-    </list>
+    <list default="true" id="b961e6d1-4d59-4af8-a88f-795cd6d9eeac" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
