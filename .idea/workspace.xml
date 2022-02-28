@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b961e6d1-4d59-4af8-a88f-795cd6d9eeac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_compress_1_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_27.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/02201904_MESA.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_io_2_11_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_11_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_io_2_11_01.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EleccionsGenerals.iml" beforeDir="false" afterPath="$PROJECT_DIR$/EleccionsGenerals.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/ImportarPersones.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/ImportarPersones.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/VotsMunicipals.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/VotsMunicipals.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsAutonomic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsAutonomic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsProvincials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsProvincials.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportarPersones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportarPersones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/importCandidatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportCandidatures.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/importMunicpis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportMunicpis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat4/DescomprimirZip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat4/DescomprimirZip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/03021904.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/03021904.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/04021904.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/04021904.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/05021904.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/05021904.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/06021904.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/06021904.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/07021904.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/07021904.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/08021904.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/08021904.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/VotsMunicipals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/VotsMunicipals.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,5 +95,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/projecte_base_dades/Main.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

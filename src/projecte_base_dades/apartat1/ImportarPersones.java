@@ -36,8 +36,7 @@ public class ImportarPersones {
                      nom = strLinia.substring(25, 50).trim();
                      cog1 = strLinia.substring(50, 75).trim();
                      cog2 = strLinia.substring(75, 100).trim();
-                    String sexe = (strLinia.substring(100, 101));
-
+                    String sexe = (strLinia.substring(101, 102));
                     selectPersones();
 
                     if (nom0.equals(" ")) {

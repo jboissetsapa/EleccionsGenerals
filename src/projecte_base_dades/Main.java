@@ -26,9 +26,9 @@ public class Main {
                 }
 
                 IntroduirDadesBasiques.dadesBasicIntro();
-                System.out.println("Importació de eleccions municipals fet");
-                ImportEleccionsMunicpis.importar();
                 System.out.println("Importació de eleccions fet");
+                ImportEleccionsMunicpis.importar();
+                System.out.println("Importació de eleccions municipals fet");
                 ImportCandidatures.llegir();
                 System.out.println("Importació de candidatures fet");
                 ImportarPersones.ImportarPersones();

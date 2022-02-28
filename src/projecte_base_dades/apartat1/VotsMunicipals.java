@@ -60,7 +60,10 @@ public class VotsMunicipals {
         try{
             Connection con = ConnexioDBGrup2.getConnection();
 
-            int codiEleccio = selectEleccioId(2019, 4);
+            int year = 2000 + Integer.parseInt(DescomprimirZip.zipId.substring(2, 4));
+            int month = Integer.parseInt(DescomprimirZip.zipId.substring(4));
+            int codiEleccio = selectEleccioId(year, month);
+
             int codiMunicipi = selectMunicipi(codiIneMun);
             int candidaturaId = selectCandidaturaId(codiCandidatura);
 
