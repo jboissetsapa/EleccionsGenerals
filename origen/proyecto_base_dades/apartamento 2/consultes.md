@@ -131,6 +131,15 @@ WHERE vots < (SELECT vots
               WHERE provincia_id = 40 )
 AND provincia_id != 40;
 
+3.3 Obté el codi ine de les comunitats autonomes que sigui més gran que el de la comunitat autónoma número 12.
+
+SELECT codi_ine
+FROM comunitats_autonomes ca
+WHERE codi_ine > (SELECT codi_ine
+                  FROM comunitats_autonomes
+                  WHERE comunitat_aut_id = 12)
+AND comunitat_aut_id != 12;
+
 
 
 ---
