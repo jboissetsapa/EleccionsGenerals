@@ -122,6 +122,17 @@ WHERE data_naixement > (SELECT data_naixement
 AND nom NOT LIKE ‘M%’ AND cog1 NOT LIKE ‘%a’;
 
 
+3.2 Obté les provincies que hagin tingut menys vots que la provincia número 40.
+
+SELECT provincia_id
+FROM vots_candidatures_prov
+WHERE vots < (SELECT vots
+              FORM vots_candidatures_prov
+              WHERE provincia_id = 40 )
+AND provincia_id != 40;
+
+
+
 ---
 
 ### CATEGORIA 4
