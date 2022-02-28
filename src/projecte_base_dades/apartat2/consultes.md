@@ -164,50 +164,50 @@ ascendent.
 
 3.1 Obté el nom que començi per “M” , el primer cognom que acabi per “a” i la data de neixement de les persones que van neixer després de les que el seu nom comença per “M” i el seu primer cognom acaba per "a".
 
-SELECT nom, cog1, data_naixement
-FROM persones p
-WHERE data_naixement > (SELECT data_naixement
+      SELECT nom, cog1, data_naixement
+      FROM persones p
+      WHERE data_naixement > (SELECT data_naixement
 	                    FROM persones
 	                    WHERE nom LIKE ‘M%’ AND cog1 LIKE ‘%a’)
-AND nom NOT LIKE ‘M%’ AND cog1 NOT LIKE ‘%a’;
+      AND nom NOT LIKE ‘M%’ AND cog1 NOT LIKE ‘%a’;
 
 
 3.2 Obté les provincies que hagin tingut menys vots que la provincia número 40.
 
-SELECT provincia_id
-FROM vots_candidatures_prov
-WHERE vots < (SELECT vots
-              FORM vots_candidatures_prov
-              WHERE provincia_id = 40 )
-AND provincia_id != 40;
+      SELECT provincia_id
+      FROM vots_candidatures_prov
+      WHERE vots < (SELECT vots
+                  FORM vots_candidatures_prov
+                  WHERE provincia_id = 40 )
+      AND provincia_id != 40;
 
 3.3 Obté el codi ine de les comunitats autonomes que sigui més gran que el de la comunitat autónoma número 12.
 
-SELECT codi_ine
-FROM comunitats_autonomes ca
-WHERE codi_ine > (SELECT codi_ine
-                  FROM comunitats_autonomes
-                  WHERE comunitat_aut_id = 12)
-AND comunitat_aut_id != 12
+      SELECT codi_ine
+      FROM comunitats_autonomes ca
+      WHERE codi_ine > (SELECT codi_ine
+                       FROM comunitats_autonomes
+                       WHERE comunitat_aut_id = 12)
+      AND comunitat_aut_id != 12
 
 
 3.4 Obté de les circumscripcions, els noms que tinguin 8 caràcters i a més que tinguin els mateixos números d’escons. Ordena els noms de forma ascendent.
 
-SELECT nom
-FROM circumscripcions c
-WHERE escons = (SELECT escons
-                FROM circumscripcions
-                WHERE nom LIKE ‘--------’ )
-ORDER BY nom ASC;
+      SELECT nom
+      FROM circumscripcions c
+      WHERE escons = (SELECT escons
+                     FROM circumscripcions
+                     WHERE nom LIKE ‘--------’ )
+      ORDER BY nom ASC;
 
 3.5 Obté la candidatura_id i els candidats obtinguts dels vots provincials, on els vots siguin més que els de la provincia número 20.
 
-SELECT candidatura_id, candidats_obtinguts
-FROM vots_candidatures_prov
-WHERE vots > (SELECT vots
+      SELECT candidatura_id, candidats_obtinguts
+      FROM vots_candidatures_prov
+      WHERE vots > (SELECT vots
               FROM vots_candidatures_prov
               WHERE provincia_id = 20 )
-AND provincia_id != 20;
+      AND provincia_id != 20;
 
 
 
@@ -220,9 +220,9 @@ Mostra tota la taula de vots de comunitat autonoma i la menor i major quantitat 
 ordena-ho per la comunitat autonoma i posa els alies seguents:
 ID Comunitat Autonoma, Candidatura ID, Vots, Menor quantitat de vots aconseguits per candidatura en total i Mayor quantitat de vots aconseguits per candidatura en total.
 
-SELECT comunitat_autonoma_id as "ID Comunitat Autonoma", candidatura_id as "Candidatura ID", vots as Vots
-,IFNULL(NTH_VALUE(vots, 1) over (partition by candidatura_id order by vots ASC), "") as "Menor quantitat de vots aconseguits per candidatura en total"
-,IFNULL(NTH_VALUE(vots, 1) over (partition by candidatura_id order by vots DESC), "") as "Mayor quantitat de vots aconseguits per candidatura en total"
-FROM vots_candidatures_ca
-ORDER BY comunitat_autonoma_id;
+      SELECT comunitat_autonoma_id as "ID Comunitat Autonoma", candidatura_id as "Candidatura ID", vots as Vots
+     ,IFNULL(NTH_VALUE(vots, 1) over (partition by candidatura_id order by vots ASC), "") as "Menor quantitat de vots aconseguits per candidatura en total"
+     ,IFNULL(NTH_VALUE(vots, 1) over (partition by candidatura_id order by vots DESC), "") as "Mayor quantitat de vots aconseguits per candidatura en total"
+     FROM vots_candidatures_ca
+     ORDER BY comunitat_autonoma_id;
 
