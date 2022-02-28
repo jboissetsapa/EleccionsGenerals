@@ -44,12 +44,12 @@ Selecciona de les **candidatures_id i la suma dels vots de les comunitats autono
         LIMIT 5;
 
 1.6
-Seleccione la **persona_id i el seu nom en format** *“Cog1 Cog2, nom”* que tenen el sexe asignat a dona i han nascut entre el 1960 i 1980.
-(*COMPROVAR SI FUNCIONA*)
+Seleccione la **persona_id i el seu nom en format** *“Cog1 Cog2, nom”* que tenen el sexe asignat a dona.
 
-        SELECT persona_id, CONCAT(cognom1," ", cognom2,"," ,nom) AS "Nom Complet"
+
+        SELECT persona_id, CONCAT(cog1," ", cog2,", " ,nom) AS "Nom Complet"
         FROM persones
-        WHERE sexe = 'F' AND YEAR(data_naixement) BETWEEN 1960 AND 1980;
+        WHERE sexe = 'F';
 
 1.7
 Selecciona de la **provincia 52, els candidats, vots i candidats obtinguts**.
@@ -65,7 +65,22 @@ Si vots < 10.000 asigna a la columna “Baix”, entre 10.000 i 30.000 = Mig, me
         WHERE provincia_id = 52;
 
 1.8
-Selecciona la mitjana de vots que ha obtingut la candidatura = 20 en la la comunitat autonoma 7.
+Selecciona la **mitjana de vots** que ha obtingut la candidatura = 20 en les comunitats autonomes.
+      
+        SELECT AVG(vots), candidatura_id
+            FROM vots_candidatures_ca
+        WHERE candidatura_id = 20;
+1.9
+Selecciona la **mitjana de vots en blanc i vots nuls de tots els municipis** renombra les columnes  a "Mitjana vots en blanc" i "Mijana vots nuls".
+
+    SELECT AVG(vots_blanc) AS "Mitjana vots en blanc", AVG(vots_nuls) AS "Mitjana vots nuls"
+    FROM eleccions_municipis;   
+
+1.10
+Selecciona la **diferencia dels vots emesos i cens** de eleccions_municipis, renombra la columna com a "Diferencia cens", mostra tambè el municipi_id, els vots emesos i el cens.
+
+    SELECT municipi_id, (cens - vots_emesos) AS "Diferencia", vots_emesos, cens
+    FROM eleccions_municipis;
 
 ---
 
