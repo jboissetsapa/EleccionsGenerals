@@ -112,6 +112,16 @@ ascendent.
 
 ### CATEGORIA 3
 
+3.1 Obté el nom que començi per “M” , el cognom que acabi per “a” i la data de neixement de les persones que van neixer després de les que el seu nom comença per “M” i el seu cognom acaba per "a"
+
+SELECT *
+FROM persones p
+WHERE data_naixement > (SELECT data_naixement
+                        FROM persones
+                        WHERE nom LIKE ‘M%’ AND cog1 LIKE ‘%a’)
+AND nom NOT LIKE ‘M%’ AND cog1 NOT LIKE ‘%a’;
+
+
 ---
 
 ### CATEGORIA 4
