@@ -1,5 +1,7 @@
 package projecte_base_dades.apartat1;
 
+import projecte_base_dades.ConnexioDBGrup2;
+import projecte_base_dades.apartat4.DescomprimirZip;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -22,7 +24,7 @@ public class ImportVotsProvincials {
             Path pathActual = Paths.get(System.getProperty("user.dir"));
 
             //Concatenem el directori actual amb un subdirectori "dades" i afegim el fitxer "05021904.DAT"
-            Path pathFitxer = Paths.get(pathActual.toString(), "dades", "08021904.DAT");
+            Path pathFitxer = Paths.get(pathActual.toString(), "dades", "08"+ DescomprimirZip.zipId +".DAT");
 
             bfLector = Files.newBufferedReader(pathFitxer, StandardCharsets.ISO_8859_1);
             String strLinia;
@@ -59,10 +61,8 @@ public class ImportVotsProvincials {
 
     static void insert(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
+            
             selectProvincies();
             selectComunitats();
 
@@ -80,8 +80,6 @@ public class ImportVotsProvincials {
             // execute the preparedstatement
             preparedStmt.execute();
 
-            //Tanquem la connexió
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);
@@ -90,10 +88,8 @@ public class ImportVotsProvincials {
 
     static void selectProvincies() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
+            
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT * " +
@@ -107,7 +103,6 @@ public class ImportVotsProvincials {
             while(rs.next()) {
                 provincia_id = rs.getInt("provincia_id");
             }
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);}
@@ -115,10 +110,8 @@ public class ImportVotsProvincials {
 
     static void selectComunitats() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
+            
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT * " +
@@ -132,7 +125,6 @@ public class ImportVotsProvincials {
             while(rs.next()) {
                 candidatura_id = rs.getInt("candidatura_id");
             }
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);}
