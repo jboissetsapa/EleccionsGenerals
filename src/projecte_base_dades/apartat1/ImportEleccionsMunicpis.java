@@ -1,5 +1,7 @@
 package projecte_base_dades.apartat1;
 
+import projecte_base_dades.ConnexioDBGrup2;
+import projecte_base_dades.apartat4.DescomprimirZip;
 import java.sql.*;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,11 +15,7 @@ public class ImportEleccionsMunicpis {
     static void introducir(){
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            //***************************************************
-            Connection con= DriverManager.getConnection("jdbc:mysql://192.168.56.102:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             // the mysql insert statement
             String query = " INSERT INTO eleccions_municipis (eleccio_id,municipi_id,num_meses,cens,vots_candidatures,vots_blanc,vots_nuls)"
                     + " values (?,?,?,?,?,?,?)";
@@ -36,7 +34,6 @@ public class ImportEleccionsMunicpis {
             preparedStmt.execute();
 
             //Tanquem la connexió***********************************
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);
@@ -96,10 +93,7 @@ public class ImportEleccionsMunicpis {
 
     static void selectProvincia(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.102:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT * " +
@@ -114,7 +108,6 @@ public class ImportEleccionsMunicpis {
             while(rs.next()) {
                 provinciaId =  rs.getInt("provincia_id");
             }
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);}
@@ -123,10 +116,7 @@ public class ImportEleccionsMunicpis {
 
     static void selectMunicipi(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.102:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT * " +
@@ -142,7 +132,6 @@ public class ImportEleccionsMunicpis {
             while(rs.next()) {
                 municipiId =  rs.getInt("municipi_id");
             }
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);}
@@ -150,10 +139,7 @@ public class ImportEleccionsMunicpis {
 
     static void selectEleccio(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.102:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT * " +
@@ -169,7 +155,6 @@ public class ImportEleccionsMunicpis {
             while(rs.next()) {
                 eleccioId =  rs.getInt("eleccio_id");
             }
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);}
