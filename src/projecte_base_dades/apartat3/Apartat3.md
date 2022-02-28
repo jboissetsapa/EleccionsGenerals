@@ -10,7 +10,7 @@ servir per l'extracció i tractament d'un .zip (Apartat 4). Seguidament es va ap
 projecte d'Intellij pensant en l'estructura d'ensamblatge, tant per les llibreries, com per les importacions i
 els diferents apartats i subarpartats, de forma que quedes tal com s'observa en la imatge:
 
-![estructura](..\..\..\imatges\EstructuraIntellij.jpeg)
+![Estructura](..\..\..\imatges\EstructuraIntellij.jpeg)
 
 També es va realitzar una branca, denominada "EstructuraProjecteEleccions", per copiar i probar diferents 
 aspectes del projecte.
