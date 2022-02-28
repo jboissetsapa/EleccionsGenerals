@@ -1,5 +1,7 @@
 package projecte_base_dades.apartat1;
 
+import projecte_base_dades.ConnexioDBGrup2;
+import projecte_base_dades.apartat4.DescomprimirZip;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -18,9 +20,7 @@ public class ImportarPersones {
     public static void ImportarPersones() {
         BufferedReader bfLector = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/Eleccions_Generals_GrupB ", "perepi", "pastanaga");
+            Connection con= ConnexioDBGrup2.getConnection();
             String strLinia;
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
             Path pathActual = Paths.get(System.getProperty("user.dir"));
@@ -65,27 +65,14 @@ public class ImportarPersones {
 
                 }
 
-
-
-
-            con.close();
-
-
-
-
-
-
-        } catch (SQLException | IOException | ClassNotFoundException throwables) {
+        } catch (SQLException | IOException throwables) {
             throwables.printStackTrace();
         }
     }
 
     static void selectPersones(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT * " +
@@ -108,7 +95,6 @@ public class ImportarPersones {
                 nom0 += rs.getString("cog1");
                 nom0 += rs.getString("cog2");
             }
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);}
