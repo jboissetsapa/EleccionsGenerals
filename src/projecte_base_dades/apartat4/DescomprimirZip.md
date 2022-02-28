@@ -1,5 +1,8 @@
+##APARTAT 4: Tractament de fitxers
 
-La funció basic es:
+###Contingut:
+
+La funció bàsica es:
 
         public static boolean descomprimirZip(){
 
