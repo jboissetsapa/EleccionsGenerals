@@ -24,7 +24,7 @@ public class ImportarPersones {
             String strLinia;
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
             Path pathActual = Paths.get(System.getProperty("user.dir"));
-           Path pathFitxer = Paths.get(pathActual.toString(), "temp", "04"+ DescomprimirZip.zipId +".DAT");
+            Path pathFitxer = Paths.get(pathActual.toString(), "temp", "04"+ DescomprimirZip.zipId +".DAT");
             bfLector = Files.newBufferedReader(pathFitxer, StandardCharsets.ISO_8859_1);
 
 

@@ -13,7 +13,7 @@ import java.nio.file.*;
 public class ImportCandidatures {
 
 
-    static String zipId = DescomprimirZip.zipId;
+    static String zipId;
     static int candidatura_id, eleccio_id;
     static String codi_candidatura, nom_curt, nom_llarg,codi_acomulacio_provincia,codi_acomulacio_ca,codi_acomulacio_nacional;
     // Llegir les dades
@@ -23,6 +23,7 @@ public class ImportCandidatures {
 
         BufferedReader bfLector = null;
         try {
+            zipId = DescomprimirZip.zipId;
 
             //Obtenim el directori actual
             Path pathActual = Paths.get(System.getProperty("user.dir"));

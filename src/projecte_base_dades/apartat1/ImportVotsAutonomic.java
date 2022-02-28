@@ -16,11 +16,12 @@ public class ImportVotsAutonomic {
     static String codiIneCA;
     static String codiProvincia;
     static String codiDistricteElectoral;
-    static String zipId = DescomprimirZip.zipId;
+    static String zipId;
     public static void lligirText(){
         BufferedReader bfLector = null;
 
         try {
+            zipId = DescomprimirZip.zipId;
 
             //Obtenim el directori actual
             Path pathActual = Paths.get(System.getProperty("user.dir"));

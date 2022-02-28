@@ -6,12 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="b961e6d1-4d59-4af8-a88f-795cd6d9eeac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/ImportarPersones.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/ImportarPersones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/VotsMunicipals.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/VotsMunicipals.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/origen/02201606_MESA.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/origen/proyecto_base_dades/apartamento 2/consultes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/ImportCandidatures.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/ImportCandidatures.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/ImportVotsAutonomic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/apartat1/ImportVotsAutonomic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportCandidatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportCandidatures.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsAutonomic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsAutonomic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportarPersones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportarPersones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/VotsMunicipals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/VotsMunicipals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/01021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/02021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/03021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/04021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/05021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/06021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/07021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/08021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/09021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/10021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tractats/hola" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,16 +107,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/projecte_base_dades/Main.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
