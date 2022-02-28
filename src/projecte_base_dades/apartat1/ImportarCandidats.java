@@ -1,4 +1,6 @@
 package projecte_base_dades.apartat1;
+
+import projecte_base_dades.ConnexioDBGrup2;
 import projecte_base_dades.apartat4.DescomprimirZip;
 import java.io.BufferedReader;
 import java.nio.charset.StandardCharsets;
@@ -18,11 +20,7 @@ public class ImportarCandidats {
 
         BufferedReader bfLector = null;
         try {
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/Eleccions_Generals_GrupB ", "perepi", "pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             String strLinia;
 
             //Preparem el Date
@@ -74,8 +72,6 @@ public class ImportarCandidats {
 
 
             }
-        //Tanquem la conexio
-            con.close();
 
         }catch (Exception e) {
             System.out.println(e);
@@ -85,10 +81,7 @@ public class ImportarCandidats {
 
     static void selectProvincies(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT * " +
@@ -104,7 +97,6 @@ public class ImportarCandidats {
             while(rs.next()) {
                 provinciaId =  rs.getInt("provincia_id");
             }
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);}
@@ -112,10 +104,7 @@ public class ImportarCandidats {
 
     static void selectCandidatures(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT * " +
@@ -131,7 +120,6 @@ public class ImportarCandidats {
             while(rs.next()) {
                 candidaturaID =  rs.getInt("candidatura_id");
             }
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);}
@@ -139,10 +127,7 @@ public class ImportarCandidats {
 
     static void selectPersones(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/Eleccions_Generals_GrupB","perepi","pastanaga");
-
+            Connection con= ConnexioDBGrup2.getConnection();
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
             String query = "SELECT * " +
@@ -161,7 +146,6 @@ public class ImportarCandidats {
             while(rs.next()) {
                 persona_id = rs.getInt("persona_id");
             }
-            con.close();
         }
         catch(Exception e){
             System.out.println(e);}
