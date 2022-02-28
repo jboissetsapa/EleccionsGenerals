@@ -1,4 +1,6 @@
 package projecte_base_dades.apartat1;
+
+import projecte_base_dades.ConnexioDBGrup2;
 import java.sql.*;
 import java.util.Calendar;
 import java.io.BufferedReader;
@@ -61,9 +63,7 @@ public class importCandidatures {
     private static void insert() {
         PreparedStatement preparedStmt = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.75.129/Eleccions_Generals_GrupB", "perepi", "pastanaga");
+            Connection con= ConnexioDBGrup2.getConnection();
 
 
             //Preparem el Date
@@ -92,9 +92,6 @@ public class importCandidatures {
             // execute the preparedstatement
             preparedStmt.execute();
 
-            //Tanquem la connexió
-            con.close();
-
         } catch (Exception e) {
             System.out.println(e);
             System.out.println(preparedStmt.toString());
@@ -104,11 +101,7 @@ public class importCandidatures {
     public static int selectEleccioId(int year,int month) {
         int a = 0;
         try{
-
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.75.129:3306/Eleccions_Generals_GrupB", "perepi", "pastanaga");
+            Connection con= ConnexioDBGrup2.getConnection();
 
             //SENTÈNCIA SELECT
             //Preparem una sentència amb paràmetres.
@@ -126,7 +119,7 @@ public class importCandidatures {
 
             }
 
-        } catch (SQLException | ClassNotFoundException throwables) {
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
