@@ -1,5 +1,7 @@
 package projecte_base_dades.apartat5;
 
+import projecte_base_dades.ConnexioDBGrup2;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,13 +10,12 @@ import java.util.Locale;
 
 public class lleidHondt {
     public static void resultatProvincies(String nomProvincia) {
-
         try {
 
 
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.75.129/Eleccions_Generals_GrupB", "perepi", "pastanaga");
+            Connection con = ConnexioDBGrup2.getConnection();
 
 
             String query = "SELECT p.nom, sum(em.vots_emesos), sum(em.vots_blanc), sum(em.vots_nuls) FROM eleccions_municipis em INNER JOIN municipis m on m.municipi_id = em.municipi_id INNER JOIN provincies p  on m.provincia_id = p.provincia_id  GROUP BY p.nom HAVING p.nom = ?";
