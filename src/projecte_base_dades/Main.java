@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //importarDadesZip();
+        importarDadesZip();
 
         System.out.println("Vols realitzar la llei d'Hondt?");
         String desicio = scan.nextLine();
@@ -52,8 +52,8 @@ public class Main {
                 System.out.println("Importació de vots autonòmics fet");
                 ImportVotsProvincials.importarDades();
                 System.out.println("Importació de vots provincials fet");
-                /*ImportVotsMunicipals.importarDades();
-                System.out.println("Importació de vots municipals fet");*/
+                ImportVotsMunicipals.importarDades();
+                System.out.println("Importació de vots municipals fet");
 
                 DescomprimirZip.procesarZips(descomprimit);
                 bucle++;

@@ -10,7 +10,7 @@ public class ConnexioDBGrup2 {
     String url;
     String usuari ="perepi";
     String contrasenya = "pastanaga";
-    String host = "192.168.56.101";
+    String host = "192.168.56.102";
     String base_dades = "Eleccions_Generals_GrupB";
 
     // Constructors

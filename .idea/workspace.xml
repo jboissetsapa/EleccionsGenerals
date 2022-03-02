@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b961e6d1-4d59-4af8-a88f-795cd6d9eeac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/origen/02201606_MESA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/tractats/02201606_MESA.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/ConnexioDBGrup2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/ConnexioDBGrup2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EleccionsGenerals/projecte_base_dades/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/ConnexioDBGrup2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/ConnexioDBGrup2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +47,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\paulm\Documents\GitHub\bd\tractats" />
       <recent name="C:\Users\jonab\Documents\GitHub\EleccionsGenerals\origen" />
       <recent name="C:\Users\Emma\Documents\GitHub\Eleccions_Generals" />
     </key>
