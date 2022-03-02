@@ -176,7 +176,7 @@ ascendent.
 3.2 Obté les provincies que hagin tingut menys vots que la provincia número 40.
 
       SELECT provincia_id
-      FROM vots_candidatures_prov
+      FROM vots_candidatures_prov vcp
       WHERE vots < (SELECT vots
                   FORM vots_candidatures_prov
                   WHERE provincia_id = 40 )
@@ -204,7 +204,7 @@ ascendent.
 3.5 Obté la candidatura_id i els candidats obtinguts dels vots provincials, on els vots siguin més que els de la provincia número 20.
 
       SELECT candidatura_id, candidats_obtinguts
-      FROM vots_candidatures_prov
+      FROM vots_candidatures_prov vcp
       WHERE vots > (SELECT vots
               FROM vots_candidatures_prov
               WHERE provincia_id = 20 )
