@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //importarDadesZip();
+        importarDadesZip();
 
         System.out.println("Vols realitzar la llei d'Hondt?");
         String desicio = scan.nextLine();
