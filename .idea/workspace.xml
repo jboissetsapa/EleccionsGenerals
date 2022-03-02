@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b961e6d1-4d59-4af8-a88f-795cd6d9eeac" name="Changes" comment="" />
+    <list default="true" id="b961e6d1-4d59-4af8-a88f-795cd6d9eeac" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportComunAutonom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportComunAutonom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/01021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/01021606.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/02021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/02021606.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/03021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/03021606.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/04021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/04021606.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/05021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/05021606.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/06021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/06021606.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/07021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/07021606.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/08021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/08021606.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/09021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/09021606.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/10021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/10021606.DAT" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

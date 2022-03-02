@@ -72,4 +72,33 @@ public class ImportComunAutonom {
         codiProvinciaINE = Integer.parseInt(linea.substring(11,13));
         nom = linea.substring(14,64).trim();
     }
+
+
+    public static boolean comprovar() {
+
+        int a = 0;
+        try {
+            Connection con = ConnexioDBGrup2.getConnection();
+            //Sentència SELECT: es prepara sentència amb paràmetres
+            String query = "SELECT COUNT(*) as quant" +
+                    " FROM comunitats_autonomes ";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+
+
+            ResultSet rs = preparedStmt.executeQuery();
+
+            while (rs.next()) {
+                a = rs.getInt("quant");
+            }
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return a==0;
+
+
+
+    }
 }

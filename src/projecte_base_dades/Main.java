@@ -16,7 +16,7 @@ public class Main {
         try {
             while (!FileUtils.isEmptyDirectory(DescomprimirZip.origin)) {
                 descomprimit = DescomprimirZip.descomprimirZip();
-                if (bucle == 1) {
+                if (ImportComunAutonom.comprovar()) {
                     ImportComunAutonom.importar();
                     System.out.println("Importació de comunitats autònomes fet");
                     ImportProvincies.importar();
@@ -24,7 +24,6 @@ public class Main {
                     ImportMunicpis.importar();
                     System.out.println("Importació de municipis fet");
                 }
-
                 IntroduirDadesBasiques.dadesBasicIntro();
                 System.out.println("Importació de eleccions fet");
                 ImportEleccionsMunicpis.importar();
