@@ -16,7 +16,7 @@ public class ImportarCandidats {
     static int provincia_id,provinciaId , persona_id;
     static int candidatura_id,candidaturaID;
     static String nom, cog1, cog2;
-    public static void ImportarCandidats() {
+    public static void importarDades() {
 
         BufferedReader bfLector = null;
         try {

@@ -17,7 +17,7 @@ public class ImportarPersones {
 
     static String nom,nom0, cog1, cog2;
 
-    public static void ImportarPersones() {
+    public static void importarDades() {
         BufferedReader bfLector = null;
         try {
             Connection con= ConnexioDBGrup2.getConnection();
@@ -36,15 +36,14 @@ public class ImportarPersones {
                      nom = strLinia.substring(25, 50).trim();
                      cog1 = strLinia.substring(50, 75).trim();
                      cog2 = strLinia.substring(75, 100).trim();
-                    String sexe = (strLinia.substring(100, 101));
                     selectPersones();
 
                     if (nom0.equals(" ")) {
                         //Preparem el Date
                         Calendar calendar = Calendar.getInstance();
                         java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
-                        String query = " INSERT INTO persones (nom,cog1,cog2,sexe)"
-                                + " values (  ?, ?, ?, ?)";
+                        String query = " INSERT INTO persones (nom,cog1,cog2)"
+                                + " values (  ?, ?, ?)";
 
 
                         // create the mysql insert preparedstatement
@@ -53,7 +52,6 @@ public class ImportarPersones {
                         preparedStmt.setString(1, nom);
                         preparedStmt.setString(2, cog1);
                         preparedStmt.setString(3, cog2);
-                        preparedStmt.setString(4, sexe);
 
 
                         // execute the preparedstatement
@@ -97,10 +95,5 @@ public class ImportarPersones {
         catch(Exception e){
             System.out.println(e);}
     }
-
-
-
-
-
-    }
+}
 

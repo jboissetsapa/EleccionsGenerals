@@ -19,7 +19,7 @@ public class ImportCandidatures {
     // Llegir les dades
 
     // Executar amb llegir()
-    public static void llegir() {
+    public static void importarDades() {
 
         BufferedReader bfLector = null;
         try {

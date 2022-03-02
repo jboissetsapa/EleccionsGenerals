@@ -15,7 +15,7 @@ public class ImportVotsProvincials {
 
     static int provincia_id, provincia_ine, candidatura_id, candidatura_ine, numVots, numCandidats_obtinguts;
 
-    public static void llegir() {
+    public static void importarDades() {
 
         BufferedReader bfLector = null;
         try {

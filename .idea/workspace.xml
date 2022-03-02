@@ -5,19 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b961e6d1-4d59-4af8-a88f-795cd6d9eeac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/origen/02201606_MESA.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/origen/02201904_MESA.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/ConnexioDBGrup2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/ConnexioDBGrup2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportCandidatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportCandidatures.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportComunAutonom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportComunAutonom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/01021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/01021606.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/02021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/02021606.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/03021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/03021606.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/04021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/04021606.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/05021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/05021606.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/06021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/06021606.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/07021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/07021606.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/08021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/08021606.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/09021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/09021606.DAT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/10021606.DAT" beforeDir="false" afterPath="$PROJECT_DIR$/temp/10021606.DAT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportEleccionsMunicpis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportEleccionsMunicpis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportMunicpis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportMunicpis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportProvincies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportProvincies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsAutonomic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsAutonomic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsProvincials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsProvincials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportarCandidats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportarCandidats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportarPersones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportarPersones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/IntroduirDadesBasiques.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportDadesBasiques.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/VotsMunicipals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat1/ImportVotsMunicipals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projecte_base_dades/apartat5/lleidHondt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projecte_base_dades/apartat5/lleidHondt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/01021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/02021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/03021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/04021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/05021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/06021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/07021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/08021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/09021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/10021606.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/FICHEROS.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/FICHEROS.rtf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tractats/hola" beforeDir="false" afterPath="$PROJECT_DIR$/tractats/hola" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +72,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jonab\Documents\GitHub\EleccionsGenerals\origen" />
       <recent name="C:\Users\Emma\Documents\GitHub\Eleccions_Generals" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -101,5 +120,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

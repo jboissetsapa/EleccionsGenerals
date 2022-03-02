@@ -17,7 +17,7 @@ public class ImportVotsAutonomic {
     static String codiProvincia;
     static String codiDistricteElectoral;
     static String zipId;
-    public static void lligirText(){
+    public static void importarDades(){
         BufferedReader bfLector = null;
 
         try {

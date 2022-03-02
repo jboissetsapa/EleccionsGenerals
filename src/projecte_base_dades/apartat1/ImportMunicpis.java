@@ -40,7 +40,7 @@ public class ImportMunicpis {
     }
 
 
-    public static void importar(){
+    public static void importarDades(){
         BufferedReader bfLector = null;
         try {
 

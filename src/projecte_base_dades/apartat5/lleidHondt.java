@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 import java.util.Locale;
 
 public class lleidHondt {
+
     public static void resultatProvincies(String nomProvincia) {
+
         try {
-
-
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection con = ConnexioDBGrup2.getConnection();
@@ -55,7 +55,5 @@ public class lleidHondt {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 }
